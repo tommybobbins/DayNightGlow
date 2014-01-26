@@ -8,7 +8,7 @@ It then calculates for each of the 7 colours in a PiGlow how much light of each 
 
     $ sudo apt-get install python-scipy
     $ sudo pip install astral
-    $ sudo mkdir /home/pi/LOGGING
+    $ mkdir /home/pi/LOGGING
 To run automatically:
 
     nano /etc/rc.local
