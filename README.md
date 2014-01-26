@@ -1,10 +1,17 @@
 DayNightGlow
 ============
 
-Raspberry Pi and PiGlow day/night light. This is a set of scripts designed to provide similar light to Sunshine and Nighttime.
+Raspberry Pi and PiGlow day/night light. This is a set of scripts designed to provide similar light to Sunshine and Nighttime. It uses the piglow.py Python module from Jason Barnett @Boeeerb: https://github.com/Boeeerb/PiGlow
 
 It uses the Astral python package to calculate sunrise, sunset and solar noon.
-It then calculates for each of the 7 colours in a PiGlow how much light of each of those colours should be showing. It calculates the intensity of the light (between 0 and 255) around a normal distribution.
+It then calculates for each of the 7 colours in a PiGlow how much light of each of those colours should be showing. It calculates the intensity of the light (between 0 and 255) around a normal distribution. It therefore requires the scipy packages. Instructions for installing both these are found in sunny.py
+
+    $ sudo apt-get install python-scipy
+    $ sudo pip install astral
+    $ sudo mkdir /home/pi/LOGGING
+# To run automatically:
+# Add the following above the exit 0 in the /etc/rc.local
+# /usr/bin/python /home/pi/DayNightGlow/sunny.py &
 
 For example, for the colour red, we think of seeing it at Dawn and Dusk, for a short period of time, but quite brightly. So we calculate a normal distribution with a High Q (low mu of 0.04) and full brightness (255).
 
@@ -27,4 +34,6 @@ The Green LED would never end up switched on, so we normalise that around noon. 
     intensity['blue'] += calculate_intensity(norm_noon_diff,centre,0.09,255)
     #print ("White")
     intensity['white'] = calculate_intensity(norm_noon_diff,centre,0.07,64)
-
+
+The PiGlow is available from Pimoroni:
+http://shop.pimoroni.com/products/piglow
