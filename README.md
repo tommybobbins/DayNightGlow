@@ -9,9 +9,10 @@ It then calculates for each of the 7 colours in a PiGlow how much light of each 
     $ sudo apt-get install python-scipy
     $ sudo pip install astral
     $ sudo mkdir /home/pi/LOGGING
-# To run automatically:
-# Add the following above the exit 0 in the /etc/rc.local
-# /usr/bin/python /home/pi/DayNightGlow/sunny.py &
+To run automatically:
+     nano /etc/rc.local
+Add the following above the exit 0 towards the end of the file.
+     /usr/bin/python /home/pi/DayNightGlow/sunny.py &
 
 For example, for the colour red, we think of seeing it at Dawn and Dusk, for a short period of time, but quite brightly. So we calculate a normal distribution with a High Q (low mu of 0.04) and full brightness (255).
 
