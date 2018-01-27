@@ -21,7 +21,7 @@ class PiGlow:
     def __init__(self):
         if rpi.RPI_REVISION == 1:
             i2c_bus = 0
-        elif rpi.RPI_REVISION == 2:
+        elif rpi.RPI_REVISION == 2 or rpi.RPI_REVISION == 3:
             i2c_bus = 1
         else:
             print "Unable to determine Raspberry Pi revision."
